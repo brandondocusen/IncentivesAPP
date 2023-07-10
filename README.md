@@ -1,5 +1,5 @@
 # IncentivesAPP
-This is a web app that incentivizes and rewards desirable behavior from the end-user
+This is a web app that incentivizes and rewards desirable behavior from the end-user. Work in progress!
 
 Currently using Java, Javascript and HTML
 
