@@ -1,0 +1,9 @@
+com\spring\crud\demo\model\Student$StudentBuilder.class
+com\spring\crud\demo\service\StudentService.class
+com\spring\crud\demo\controller\StudentController.class
+com\spring\crud\demo\service\impl\StudentServiceImpl.class
+com\spring\crud\demo\repository\StudentRepository.class
+com\spring\crud\demo\SpringBootH2CRUDApplication.class
+com\spring\crud\demo\model\Student.class
+com\spring\crud\demo\model\StudentList.class
+com\spring\crud\demo\controller\DefaultController.class
