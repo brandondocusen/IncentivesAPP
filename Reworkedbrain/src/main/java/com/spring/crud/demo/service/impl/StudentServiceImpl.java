@@ -87,6 +87,10 @@ public class StudentServiceImpl implements StudentService {
 		return students;
 	}
 
+	@Override
+    public void deleteStudent(int rollNo) {
+        repository.deleteById(rollNo);
+    }
 	
 	@Override
 	public List<Student> getStudentByCondition(Student student) {
