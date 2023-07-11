@@ -3,6 +3,7 @@ package com.spring.crud.demo.service.impl;
 import com.spring.crud.demo.model.Student;
 import com.spring.crud.demo.repository.StudentRepository;
 import com.spring.crud.demo.service.StudentService;
+import com.spring.crud.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -86,6 +87,19 @@ public class StudentServiceImpl implements StudentService {
 		}
 		return students;
 	}
+
+	@Override
+	public Student updateStudent(int rollNo, Student studentDetails) {
+    Student student = repository.findById(rollNo)
+        .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + rollNo));
+        
+    student.setFirstName(studentDetails.getFirstName());
+    student.setLastName(studentDetails.getLastName());
+    student.setMarks(studentDetails.getMarks());
+    
+    final Student updatedStudent = repository.save(student);
+    return updatedStudent;
+}
 
 	@Override
     public void deleteStudent(int rollNo) {
