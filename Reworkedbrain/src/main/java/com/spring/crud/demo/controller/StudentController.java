@@ -69,6 +69,12 @@ public class StudentController {
         return studentService.saveStudent(student);
     }
 
+    @PutMapping("/{rollNo}")
+    public ResponseEntity<Student> updateStudent(@PathVariable int rollNo, @RequestBody Student studentDetails) {
+        Student updatedStudent = studentService.updateStudent(rollNo, studentDetails);
+        return ResponseEntity.ok(updatedStudent);
+}
+
     @DeleteMapping("/{rollNo}")
     public ResponseEntity<Void> deleteStudent(@PathVariable int rollNo) {
         studentService.deleteStudent(rollNo);
