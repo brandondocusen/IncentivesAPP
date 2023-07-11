@@ -5,6 +5,7 @@ import com.spring.crud.demo.model.StudentList;
 import com.spring.crud.demo.service.StudentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -67,4 +68,11 @@ public class StudentController {
     public Student createStudent(@RequestBody Student student) {
         return studentService.saveStudent(student);
     }
+
+    @DeleteMapping("/{rollNo}")
+    public ResponseEntity<Void> deleteStudent(@PathVariable int rollNo) {
+        studentService.deleteStudent(rollNo);
+        return ResponseEntity.noContent().build();
+    }
+
 }
