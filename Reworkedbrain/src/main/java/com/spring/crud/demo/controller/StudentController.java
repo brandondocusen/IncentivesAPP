@@ -73,7 +73,13 @@ public class StudentController {
     public ResponseEntity<Student> updateStudent(@PathVariable int rollNo, @RequestBody Student studentDetails) {
         Student updatedStudent = studentService.updateStudent(rollNo, studentDetails);
         return ResponseEntity.ok(updatedStudent);
-}
+    }
+
+    @PatchMapping("/{rollNo}")
+    public ResponseEntity<Student> patchStudent(@PathVariable int rollNo, @RequestBody Student studentDetails) {
+        Student patchedStudent = studentService.patchStudent(rollNo, studentDetails);
+        return ResponseEntity.ok(patchedStudent);
+    }
 
     @DeleteMapping("/{rollNo}")
     public ResponseEntity<Void> deleteStudent(@PathVariable int rollNo) {
