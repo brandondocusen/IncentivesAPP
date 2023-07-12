@@ -24,9 +24,9 @@ public class Student implements Serializable {
     private int rollNo;
     private String firstName;
     private String lastName;
-    private float marks;
+    private Float marks;
 
-    public Student(int rollNo, int id, String firstName, String lastName, float marks) {
+    public Student(int rollNo, int id, String firstName, String lastName, Float marks) {
         this.rollNo = rollNo;
         this.firstName = firstName;
         this.lastName = lastName;
