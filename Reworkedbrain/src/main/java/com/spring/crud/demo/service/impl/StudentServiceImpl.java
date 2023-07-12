@@ -12,23 +12,20 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-	
 
 	@Autowired
 	private StudentRepository repository;
-	
 
-	
 	@Override
 	public List<Student> getAll() {
 		return repository.findAll();
 	}
-	
+
 	@Override
 	public Student getStudentByLastName(String lastName) {
-		
+
 		List<Student> students = repository.findAll();
-		
+
 		for (Student emp : students) {
 			if (emp.getLastName().equalsIgnoreCase(lastName))
 				return emp;
@@ -64,14 +61,13 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student saveStudent(Student student) {
-    	return repository.save(student);
+		return repository.save(student);
 	}
 
 	@Override
 	public List<Student> getStudentByFirstNameLike(String firstName) {
 		return repository.findByFirstNameLike(firstName);
 	}
-
 
 	@Override
 	public List<Student> getStudentByMarksGreaterThan(int marks) {
@@ -90,22 +86,41 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student updateStudent(int rollNo, Student studentDetails) {
-    Student student = repository.findById(rollNo)
-        .orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + rollNo));
-        
-    student.setFirstName(studentDetails.getFirstName());
-    student.setLastName(studentDetails.getLastName());
-    student.setMarks(studentDetails.getMarks());
-    
-    final Student updatedStudent = repository.save(student);
-    return updatedStudent;
-}
+		Student student = repository.findById(rollNo)
+				.orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + rollNo));
+
+		student.setFirstName(studentDetails.getFirstName());
+		student.setLastName(studentDetails.getLastName());
+		student.setMarks(studentDetails.getMarks());
+
+		final Student updatedStudent = repository.save(student);
+		return updatedStudent;
+	}
 
 	@Override
-    public void deleteStudent(int rollNo) {
-        repository.deleteById(rollNo);
-    }
-	
+	public Student patchStudent(int rollNo, Student studentDetails) {
+		Student student = repository.findById(rollNo)
+				.orElseThrow(() -> new ResourceNotFoundException("Student not found for this id :: " + rollNo));
+
+		if (studentDetails.getFirstName() != null) {
+			student.setFirstName(studentDetails.getFirstName());
+		}
+		if (studentDetails.getLastName() != null) {
+			student.setLastName(studentDetails.getLastName());
+		}
+		if (studentDetails.getMarks() != null) {
+			student.setMarks(studentDetails.getMarks());
+		}
+
+		final Student updatedStudent = repository.save(student);
+		return updatedStudent;
+	}
+
+	@Override
+	public void deleteStudent(int rollNo) {
+		repository.deleteById(rollNo);
+	}
+
 	@Override
 	public List<Student> getStudentByCondition(Student student) {
 		List<Student> list = repository.findAll();
