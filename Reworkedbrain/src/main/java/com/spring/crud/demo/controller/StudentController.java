@@ -3,7 +3,7 @@ package com.spring.crud.demo.controller;
 import com.spring.crud.demo.model.Student;
 import com.spring.crud.demo.model.StudentList;
 import com.spring.crud.demo.service.StudentService;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/students")
+@CrossOrigin(origins = "http://localhost:3000")
 public class StudentController {
 
     @Autowired
