@@ -3,5 +3,4 @@ This is a web app that incentivizes and rewards desirable behavior from the end-
 
 Currently using Java, Javascript, HTML and XML
 
-![Progress_Tracker](https://github.com/brandondocusen/IncentivesAPP/assets/23441220/f66a185e-6532-4ccb-b534-293ccf0ceb68)
-
+![Flowchart](https://github.com/brandondocusen/IncentivesAPP/assets/23441220/f14e138e-5865-4b47-87d4-6b8975972a79)
