@@ -1,7 +1,7 @@
 package com.spring.crud.demo;
 
-import com.spring.crud.demo.model.Student;
-import com.spring.crud.demo.repository.StudentRepository;
+import com.spring.crud.demo.model.Employee;
+import com.spring.crud.demo.repository.EmployeeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -22,7 +22,7 @@ public class SpringBootH2CRUDApplication {
 	}
 
 	@Autowired
-	private StudentRepository studentRepository;
+	private EmployeeRepository employeeRepository;
 	
 
 

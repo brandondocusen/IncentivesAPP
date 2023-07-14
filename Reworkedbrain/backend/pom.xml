@@ -20,6 +20,7 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
+        <!-- Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -45,17 +46,28 @@
     </dependencies>
     <build>
         <plugins>
+            <!-- Maven Resources Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Maven Failsafe Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M4</version>
                 <configuration>
                     <includes>
-                        <!--                        <include>**/IntegrationTest.java</include>-->
+                        <!--<include>**/IntegrationTest.java</include>-->
                     </includes>
                 </configuration>
                 <executions>
@@ -67,6 +79,6 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins> 
+        </plugins>
     </build>
 </project>
